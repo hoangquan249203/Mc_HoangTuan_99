@@ -1,52 +1,126 @@
+const { google } = require("googleapis");
+
 exports.handler = async (event) => {
 
+    // Chỉ cho phép POST
     if (event.httpMethod !== "POST") {
         return {
             statusCode: 405,
-            body: "Method Not Allowed"
+            body: JSON.stringify({
+                success: false,
+                message: "Method Not Allowed"
+            })
         };
     }
 
     try {
 
-        const data = JSON.parse(event.body);
+        // Đọc dữ liệu gửi từ form
+        const body = JSON.parse(event.body);
 
-        const response = await fetch(
-            "https://script.google.com/macros/s/AKfycbyO1oMooOLvlSUSPyUL_eU0-iZ1QcYXZJ1PGdS3s41YB8Uw2XGjfvJmJLHGPj3OdMXE/exec",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            }
+        // Kết nối Google Service Account
+        const auth = new google.auth.JWT(
+            process.env.GOOGLE_CLIENT_EMAIL,
+            null,
+            process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+            [
+                "https://www.googleapis.com/auth/spreadsheets"
+            ]
         );
 
-        const text = await response.text();
+        await auth.authorize();
+
+        const sheets = google.sheets({
+            version: "v4",
+            auth
+        });
+
+        // Chuẩn bị dữ liệu
+        const values = [[
+
+            new Date().toLocaleString("vi-VN"),
+
+            body.fullName || "",
+
+            body.phone || "",
+
+            body.email || "",
+
+            body.service || "",
+
+            body.location || "",
+
+            body.budget || "",
+
+            body.date || "",
+
+            body.time || "",
+
+            body.note || ""
+
+        ]];
+
+        // Ghi dữ liệu
+        await sheets.spreadsheets.values.append({
+
+            spreadsheetId:
+                process.env.GOOGLE_SHEET_ID,
+
+            range:
+                "Đặt lịch!A:J",
+
+            valueInputOption:
+                "USER_ENTERED",
+
+            insertDataOption:
+                "INSERT_ROWS",
+
+            requestBody: {
+                values
+            }
+
+        });
 
         return {
+
             statusCode: 200,
+
             headers: {
-                "Access-Control-Allow-Origin": "*",
                 "Content-Type": "application/json"
             },
+
             body: JSON.stringify({
+
                 success: true,
-                result: text
+
+                message: "Booking created."
+
             })
+
         };
 
-    } catch (err) {
+    }
+
+    catch (err) {
+
+        console.error(err);
 
         return {
+
             statusCode: 500,
+
             headers: {
-                "Access-Control-Allow-Origin": "*"
+                "Content-Type": "application/json"
             },
+
             body: JSON.stringify({
+
                 success: false,
-                error: err.message
+
+                message: err.message
+
             })
+
         };
 
     }

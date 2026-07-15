@@ -1,5 +1,32 @@
 {
   "dependencies": {
     "googleapis": "^144.0.0"
-  }
+  },
+  "name": "mc-hoangtuan-booking",
+  "version": "1.0.0",
+  "description": "MC Hoang Tuan Booking",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "netlify dev"
+  },
+
+  "dependencies": {
+    "googleapis": "^144.0.0"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoangquan249203/Mc_HoangTuan_99.git"
+  },
+
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/hoangquan249203/Mc_HoangTuan_99/issues"
+  },
+  
+  "homepage": "https://github.com/hoangquan249203/Mc_HoangTuan_99#readme"
 }
