@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <script src="/_sdk/telemetry_sdk.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MC Portfolio</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <script src="/_sdk/element_sdk.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=Raleway:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../HOME/MC.css">
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#D4AF37',
+            'gold-light': '#E8D48B',
+            navy: '#1B2A4A',
+            'navy-dark': '#0F1A2E',
+            'cream': '#F5F3F0',
+            'cream-dark': '#EBE7E1'
+          },
+          fontFamily: {
+            'display': ['Playfair Display', 'serif'],
+            'body': ['Segoe UI Emoji', 'sans-serif']
+          }
+        }
+      }
+    }
+    </script>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  </head>
+  <body class="bg-cream text-navy font-body">
+    <!-- Fixed Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-md border-b border-gold/20 transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="#hero" class="font-display text-xl font-bold text-gold" id="nav-name">HOÀNG MINH TUẤN</a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#hero" class="text-sm text-navy/70 hover:text-gold transition-colors">VỀ TÔI</a>
+          <a href="#services" class="text-sm text-navy/70 hover:text-gold transition-colors">DỊCH VỤ</a>
+          <a href="#testimonials" class="text-sm text-navy/70 hover:text-gold transition-colors">PHẢN HỒI</a>
+          <a href="#gallery" class="text-sm text-navy/70 hover:text-gold transition-colors">NỔI BẬT</a>
+          <a href="../form.html" class="text-sm px-5 py-2 bg-gold text-navy font-semibold rounded hover:bg-gold-light transition-colors">LIÊN HỆ</a>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden text-navy">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
+        <a href="#hero" class="block text-sm text-navy/70 hover:text-gold">VỀ TÔI</a>
+        <a href="#services" class="block text-sm text-navy/70 hover:text-gold">DỊCH VỤ</a>
+        <a href="#testimonials" class="block text-sm text-navy/70 hover:text-gold">PHẢN HỒI</a>
+        <a href="#gallery" class="block text-sm text-navy/70 hover:text-gold">NỔI BẬT</a>
+        <a href="../form.html" class="block text-sm text-gold font-semibold">LIÊN HỆ</a>
+      </div>
+    </nav>
+
+    <!-- SECTION 1: HERO -->
+    <section id="hero" class="pt-24 pb-16 px-6">
+   <div class="max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-12 items-center min-h-[600px]"><!-- Portrait -->
+     <div class="relative flex justify-center animate-fade-up">
+      <div class="w-80 h-[450px] lg:w-[28rem] lg:h-[34rem] rounded-2xl bg-gradient-to-br from-cream-dark to-cream border border-gold/40 flex items-center justify-center overflow-hidden relative">
+       <img id="hero-carousel-image" src="../image/MC1.JPG" alt="MC portrait" class="w-full h-full object-contain object-center p-2 transition-all duration-300">
+       <button id="hero-carousel-prev" type="button" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-cream/90 text-navy shadow-lg flex items-center justify-center hover:bg-gold hover:text-navy transition-colors" aria-label="Ảnh trước">
+        <i data-lucide="chevron-left" class="w-5 h-5"></i>
+       </button>
+       <button id="hero-carousel-next" type="button" class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-cream/90 text-navy shadow-lg flex items-center justify-center hover:bg-gold hover:text-navy transition-colors" aria-label="Ảnh tiếp theo">
+        <i data-lucide="chevron-right" class="w-5 h-5"></i>
+       </button>
+       <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+        <span class="hero-carousel-dot h-2.5 w-2.5 rounded-full bg-white/80 shadow"></span>
+        <span class="hero-carousel-dot h-2.5 w-2.5 rounded-full bg-white/50 shadow"></span>
+        <span class="hero-carousel-dot h-2.5 w-2.5 rounded-full bg-white/50 shadow"></span>
+       </div>
+       <div class="absolute inset-0 bg-gradient-to-t from-navy/10 to-transparent z-10"></div>
+       <div class="absolute top-4 right-4 w-3 h-3 bg-gold rounded-full animate-pulse z-20"></div>
+      </div>
+     </div><!-- Info -->
+     <div class="space-y-6">
+      <div class="animate-fade-up animate-delay-1">
+       <p class="text-gold text-sm font-semibold tracking-[0.3em] uppercase mb-2">Professional MC</p>
+       <h1 id="hero-name" class="font-display text-5xl lg:text-6xl font-900 leading-tight text-navy mt-4">HOÀNG MINH TUẤN</h1>
+      </div>
+      <p id="hero-title" class="text-navy/60 text-lg animate-fade-up animate-delay-2">MC Sự Kiện – MC Hội Nghị – MC Tiệc Cưới – Event Host</p>
+      <p id="hero-intro" class="text-navy/50 leading-relaxed animate-fade-up animate-delay-3">Với hơn 3 năm kinh nghiệm dẫn dắt hàng nghìn sự kiện từ tiệc cưới sang trọng đến hội nghị quốc tế, tôi mang đến năng lượng tích cực và sự chuyên nghiệp tuyệt đối cho mọi chương trình.</p><!-- Stats -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 animate-fade-up animate-delay-4">
+       <div class="text-center p-4 rounded-xl gold-border bg-cream-dark">
+        <div class="stat-number font-display text-3xl font-bold">
+         3+
+        </div>
+        <div class="text-navy/40 text-xs mt-1">
+         Năm kinh nghiệm
+        </div>
+       </div>
+       <div class="text-center p-4 rounded-xl gold-border bg-cream-dark">
+        <div class="stat-number font-display text-3xl font-bold">
+         50+
+        </div>
+        <div class="text-navy/40 text-xs mt-1">
+         Sự kiện
+        </div>
+       </div>
+       <div class="text-center p-4 rounded-xl gold-border bg-cream-dark">
+        <div class="stat-number font-display text-3xl font-bold">
+         200+
+        </div>
+        <div class="text-navy/40 text-xs mt-1">
+         Khách hàng
+        </div>
+       </div>
+       <div class="text-center p-4 rounded-xl gold-border bg-cream-dark">
+        <div class="stat-number font-display text-3xl font-bold">
+         4.9
+        </div>
+        <div class="text-navy/40 text-xs mt-1">
+         Đánh giá TB
+        </div>
+       </div>
+      </div>
+     </div>
+    </div><!-- Achievements -->
+    <div class="mt-20">
+     <h3 class="font-display text-2xl text-center mb-10 text-navy/80">Thành Tích Nổi Bật</h3>
+     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
+      <div class="card-hover gold-border rounded-xl p-8 lg:p-10 bg-cream-dark text-center flex flex-col items-center justify-center min-h-[180px]"><i data-lucide="award" class="w-12 h-12 lg:w-14 lg:h-14 text-gold mx-auto mb-4"></i>
+       <h4 class="font-semibold text-navy/90 mb-2 text-lg">Giải Thưởng</h4>
+       <p class="text-navy/40 text-sm">MC xuất sắc 2023</p>
+      </div>
+      <div class="card-hover gold-border rounded-xl p-8 lg:p-10 bg-cream-dark text-center flex flex-col items-center justify-center min-h-[180px]"><i data-lucide="badge-check" class="w-12 h-12 lg:w-14 lg:h-14 text-gold mx-auto mb-4"></i>
+       <h4 class="font-semibold text-navy/90 mb-2 text-lg">Chứng Nhận</h4>
+       <p class="text-navy/40 text-sm">Certified Event Host</p>
+      </div>
+      <div class="card-hover gold-border rounded-xl p-8 lg:p-10 bg-cream-dark text-center flex flex-col items-center justify-center min-h-[180px]"><i data-lucide="star" class="w-12 h-12 lg:w-14 lg:h-14 text-gold mx-auto mb-4"></i>
+       <h4 class="font-semibold text-navy/90 mb-2 text-lg">Sự Kiện Lớn</h4>
+       <p class="text-navy/40 text-sm">Gala 200+ khách</p>
+      </div>
+     </div>
+     <div class="card-hover gold-border rounded-xl p-6 lg:p-8 bg-cream-dark">
+      <div class="text-center mb-5">
+       <i data-lucide="handshake" class="w-10 h-10 text-gold mx-auto mb-3"></i>
+       <h4 class="font-semibold text-navy/90 mb-1 text-lg">Đối Tác</h4>
+       <p class="text-navy/40 text-sm">50+ thương hiệu lớn</p>
+      </div>
+      <div id="partner-logos" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4"></div>
+     </div>
+    </div>
+  </div>
+</section>
+
+    <!-- SECTION 2: SERVICES -->
+    <section id="services" class="py-20 px-6 bg-cream-dark/40">
+   <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+     <p class="text-gold text-sm tracking-[0.3em] uppercase mb-3">What I Do</p>
+     <h2 class="font-display text-4xl lg:text-5xl font-bold text-navy mt-4">DỊCH VỤ CỦA TÔI</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8"><!-- Service 1 -->
+     <div class="card-hover gold-border rounded-2xl overflow-hidden bg-cream group">
+      <div class="h-48 bg-gradient-to-br from-gold/10 to-gold/5 flex items-center justify-center relative overflow-hidden"><i data-lucide="calendar-check" class="w-16 h-16 text-gold/60 group-hover:text-gold transition-colors"></i>
+       <div class="absolute inset-0 bg-gold/0 group-hover:bg-gold/5 transition-colors"></div>
+      </div>
+      <div class="p-6 space-y-3">
+       <h3 class="font-display text-xl font-bold text-navy">Tư Vấn Tổ Chức Sự Kiện</h3>
+       <p class="text-navy/60 text-sm leading-relaxed">Lên kịch bản, timeline chi tiết và tư vấn toàn bộ quy trình tổ chức sự kiện chuyên nghiệp từ A đến Z.</p><button class="text-gold text-sm font-semibold hover:text-gold transition-colors flex items-center gap-1">Xem thêm <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+      </div>
+     </div><!-- Service 2 -->
+     <div class="card-hover gold-border rounded-2xl overflow-hidden bg-cream group">
+      <div class="h-48 bg-gradient-to-br from-gold/10 to-gold/5 flex items-center justify-center relative overflow-hidden"><i data-lucide="heart" class="w-16 h-16 text-gold/60 group-hover:text-gold transition-colors"></i>
+       <div class="absolute inset-0 bg-gold/0 group-hover:bg-gold/5 transition-colors"></div>
+      </div>
+      <div class="p-6 space-y-3">
+       <h3 class="font-display text-xl font-bold text-navy">MC Tiệc Cưới</h3>
+       <p class="text-navy/60 text-sm leading-relaxed">Dẫn dắt tiệc cưới với phong cách tinh tế, lãng mạn và tạo cảm xúc trọn vẹn cho ngày trọng đại.</p><button class="text-gold text-sm font-semibold hover:text-gold transition-colors flex items-center gap-1">Xem thêm <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+      </div>
+     </div><!-- Service 3 -->
+     <div class="card-hover gold-border rounded-2xl overflow-hidden bg-cream group">
+      <div class="h-48 bg-gradient-to-br from-gold/10 to-gold/5 flex items-center justify-center relative overflow-hidden"><i data-lucide="users" class="w-16 h-16 text-gold/60 group-hover:text-gold transition-colors"></i>
+       <div class="absolute inset-0 bg-gold/0 group-hover:bg-gold/5 transition-colors"></div>
+      </div>
+      <div class="p-6 space-y-3">
+       <h3 class="font-display text-xl font-bold text-navy">Cung Cấp Nhân Sự Sự Kiện</h3>
+       <p class="text-navy/60 text-sm leading-relaxed">Đội ngũ PG, PB, usher chuyên nghiệp, được đào tạo bài bản sẵn sàng hỗ trợ mọi sự kiện.</p><button class="text-gold text-sm font-semibold hover:text-gold transition-colors flex items-center gap-1">Xem thêm <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+      </div>
+     </div>
+    </div>
+  </div>
+</section>
+
+    <!-- SECTION 3: TESTIMONIALS -->
+    <section id="testimonials" class="py-20 px-6 bg-cream">
+   <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+     <p class="text-gold text-sm tracking-[0.3em] uppercase mb-3">Testimonials</p>
+     <h2 class="font-display text-4xl lg:text-5xl font-bold text-navy mt-4">KHÁCH HÀNG NÓI GÌ VỀ TÔI</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+     <div class="card-hover gold-border rounded-xl p-6 bg-cream-dark">
+      <div class="flex items-center gap-3 mb-4">
+       <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center">
+        <i data-lucide="user" class="w-5 h-5 text-gold/60"></i>
+       </div>
+       <div>
+        <div class="font-semibold text-navy/80 text-sm">
+         Anh Đạt Nguyễn 
+        </div>
+        <div class="text-navy/40 text-xs">
+         CEO, Công ty Aris Home
+        </div>
+       </div>
+      </div>
+      <p class="text-navy/50 text-sm italic leading-relaxed">"Tuấn làm việc rất chuyên nghiệp và đúng tiến độ. Ngay từ buổi trao đổi đầu tiên tôi đã thấy sự tận tâm và cách tư vấn rất rõ ràng của bạn. Thành phẩm vượt mong đợi, chỉn chu đến từng chi tiết. Chắc chắn tôi sẽ tiếp tục hợp tác với Tuấn trong các dự án sắp tới."</p>
+      <div class="flex gap-1 mt-3">
+       <i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i>
+      </div>
+     </div>
+     <div class="card-hover gold-border rounded-xl p-6 bg-cream-dark">
+      <div class="flex items-center gap-3 mb-4">
+       <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center">
+        <i data-lucide="user" class="w-5 h-5 text-gold/60"></i>
+       </div>
+       <div>
+        <div class="font-semibold text-navy/80 text-sm">
+         Anh Trọng
+        </div>
+        <div class="text-navy/40 text-xs">
+         Chủ chuỗi gà rán FKT
+        </div>
+       </div>
+      </div>
+      <p class="text-navy/50 text-sm italic leading-relaxed">"Điều tôi ấn tượng nhất về Tuấn là khả năng nắm bắt ý tưởng rất nhanh. Không chỉ thực hiện đúng yêu cầu mà còn đưa ra nhiều giải pháp giúp dự án hiệu quả hơn. Rất đáng tin cậy."</p>
+      <div class="flex gap-1 mt-3">
+       <i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i>
+      </div>
+     </div>
+     <div class="card-hover gold-border rounded-xl p-6 bg-cream-dark">
+      <div class="flex items-center gap-3 mb-4">
+       <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center">
+        <i data-lucide="user" class="w-5 h-5 text-gold/60"></i>
+       </div>
+       <div>
+        <div class="font-semibold text-navy/80 text-sm">
+         Anh Quốc Anh
+        </div>
+        <div class="text-navy/40 text-xs">
+         Wedding Consultant
+        </div>
+       </div>
+      </div>
+      <p class="text-navy/50 text-sm italic leading-relaxed">"Khách hàng của tôi đều rất hài lòng với chất lượng dịch vụ. Mọi chi tiết đều được chuẩn bị kỹ lưỡng, đúng thời gian và mang lại cảm giác chuyên nghiệp. Hoàng Tuấn sẽ là đối tác tôi ưu tiên giới thiệu cho bạn bè và gia đình."</p>
+      <div class="flex gap-1 mt-3">
+       <i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i>
+      </div>
+     </div>
+     <div class="card-hover gold-border rounded-xl p-6 bg-cream-dark">
+      <div class="flex items-center gap-3 mb-4">
+       <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center">
+        <i data-lucide="user" class="w-5 h-5 text-gold/60"></i>
+       </div>
+       <div>
+        <div class="font-semibold text-navy/80 text-sm">
+         Chị Thảo Vy
+        </div>
+        <div class="text-navy/40 text-xs">
+         Event Manager
+        </div>
+       </div>
+      </div>
+      <p class="text-navy/50 text-sm italic leading-relaxed">"Đội ngũ làm việc nhanh, phản hồi gần như ngay lập tức và luôn sẵn sàng chỉnh sửa đến khi đạt kết quả tốt nhất. Sản phẩm cuối cùng giúp chiến dịch của chúng tôi tạo được nhiều ấn tượng hơn."</p>
+      <div class="flex gap-1 mt-3">
+       <i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i>
+      </div>
+     </div>
+     <div class="card-hover gold-border rounded-xl p-6 bg-cream-dark">
+      <div class="flex items-center gap-3 mb-4">
+       <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center">
+        <i data-lucide="user" class="w-5 h-5 text-gold/60"></i>
+       </div>
+       <div>
+        <div class="font-semibold text-navy/80 text-sm">
+         Anh Đức Huy
+        </div>
+        <div class="text-navy/40 text-xs">
+         Director, Lumière Media
+        </div>
+       </div>
+      </div>
+      <p class="text-navy/50 text-sm italic leading-relaxed">"Từ khâu lên ý tưởng đến triển khai đều rất mượt mà. Mọi việc diễn ra đúng kế hoạch và không phát sinh vấn đề ngoài dự kiến. Sự chuyên nghiệp của Tuấn đã khiến tôi hoàn toàn yên tâm trong suốt quá trình hợp tác."</p>
+      <div class="flex gap-1 mt-3">
+       <i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i>
+      </div>
+     </div>
+     <div class="card-hover gold-border rounded-xl p-6 bg-cream-dark">
+      <div class="flex items-center gap-3 mb-4">
+       <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center">
+        <i data-lucide="user" class="w-5 h-5 text-gold/60"></i>
+       </div>
+       <div>
+        <div class="font-semibold text-navy/80 text-sm">
+         Anh Thanh Tùng
+        </div>
+        <div class="text-navy/40 text-xs">
+         Founder, T&T Production
+        </div>
+       </div>
+      </div>
+      <p class="text-navy/50 text-sm italic leading-relaxed">"Là một startup, chúng tôi cần đối tác vừa sáng tạo vừa tối ưu chi phí. Dịch vụ đáp ứng được cả hai điều đó. Kết quả nhận được vượt xa kỳ vọng và mang lại giá trị thực sự."</p>
+      <div class="flex gap-1 mt-3">
+       <i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i>
+      </div>
+     </div>
+     <div class="card-hover gold-border rounded-xl p-6 bg-cream-dark">
+      <div class="flex items-center gap-3 mb-4">
+       <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center">
+        <i data-lucide="user" class="w-5 h-5 text-gold/60"></i>
+       </div>
+       <div>
+        <div class="font-semibold text-navy/80 text-sm">
+         Chị Lê Quỳnh Anh
+        </div>
+        <div class="text-navy/40 text-xs">
+         Cô dâu
+        </div>
+       </div>
+      </div>
+      <p class="text-navy/50 text-sm italic leading-relaxed">"Đây là một trong những quyết định đúng đắn nhất của mình. Mọi thứ được chuẩn bị chu đáo, tinh tế và đúng như mong muốn. Mình nhận được rất nhiều lời khen từ gia đình và bạn bè. Cảm ơn MC Hoàng Tuấn vì đã góp phần tạo nên một ngày thật đáng nhớ."</p>
+      <div class="flex gap-1 mt-3">
+       <i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i><i data-lucide="star" class="w-4 h-4 text-gold fill-gold"></i>
+      </div>
+     </div>
+    </div>
+  </div>
+</section>
+
+    <!-- FEEDBACK MEDIA -->
+    <section class="py-20 px-6 bg-cream-dark/30">
+   <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-14">
+     <p class="text-gold text-sm tracking-[0.3em] uppercase mb-3">Feedback Media</p>
+     <h2 class="font-display text-4xl lg:text-5xl font-bold text-navy mt-4">HÌNH ẢNH VÀ VIDEO PHẢN HỒI</h2>
+     <p class="text-navy/55 mt-4 max-w-2xl mx-auto leading-relaxed">Một vài hình ảnh và video thực tế từ khách hàng để bạn xem rõ hơn về trải nghiệm dịch vụ.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+     <div class="card-hover gold-border rounded-2xl overflow-hidden bg-cream shadow-sm md:col-span-2 xl:col-span-1">
+      <video controls class="w-full aspect-[4/5] object-cover bg-black" src="../image/Feedback_1.mp4"></video>
+     </div>
+     <div class="card-hover gold-border rounded-2xl overflow-hidden bg-cream shadow-sm">
+      <video controls class="w-full aspect-[4/5] object-cover bg-black" src="../image/Feedback_2.mp4"></video>
+     </div>
+     <div class="card-hover gold-border rounded-2xl overflow-hidden bg-cream shadow-sm">
+      <img loading="lazy" class="w-full aspect-[4/5] object-cover" src="../image/Feedback_3.jpg" alt="Feedback 3">
+     </div>
+     <div class="card-hover gold-border rounded-2xl overflow-hidden bg-cream shadow-sm">
+      <video controls class="w-full aspect-[4/5] object-cover bg-black" src="../image/Feedback_4.mp4"></video>
+     </div>
+     <div class="card-hover gold-border rounded-2xl overflow-hidden bg-cream shadow-sm md:col-span-2 xl:col-span-1">
+      <video controls class="w-full aspect-[4/5] object-cover bg-black" src="../image/Feedback_5.mp4"></video>
+     </div>
+     <div class="card-hover gold-border rounded-2xl overflow-hidden bg-cream shadow-sm">
+      <video controls class="w-full aspect-[4/5] object-cover bg-black" src="../image/Feedback_6.mp4"></video>
+     </div>
+     <div class="card-hover gold-border rounded-2xl overflow-hidden bg-cream shadow-sm">
+      <video controls class="w-full aspect-[4/5] object-cover bg-black" src="../image/Feedback_8.mp4"></video>
+     </div>
+     <div class="card-hover gold-border rounded-2xl overflow-hidden bg-cream shadow-sm md:col-span-2 xl:col-span-1">
+      <video controls class="w-full aspect-[4/5] object-cover bg-black" src="../image/Feedback_9.mp4"></video>
+     </div>
+     <div class="card-hover gold-border rounded-2xl overflow-hidden bg-cream shadow-sm">
+      <video controls class="w-full aspect-[4/5] object-cover bg-black" src="../image/Feedback_10.mp4"></video>
+     </div>
+     <div class="card-hover gold-border rounded-2xl overflow-hidden bg-cream shadow-sm md:col-span-2 xl:col-span-1">
+      <video controls class="w-full aspect-[4/5] object-cover bg-black" src="../image/Feedback_11.mp4"></video>
+     </div>
+    </div>
+   </div>
+ </section>
+ 
+    <!-- SECTION 4: GALLERY -->
+    <section id="gallery" class="py-20 px-6 bg-cream-dark/40">
+   <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+     <p class="text-gold text-sm tracking-[0.3em] uppercase mb-3">Highlights</p>
+     <h2 class="font-display text-4xl lg:text-5xl font-bold text-navy mt-4">NHỮNG KHOẢNH KHẮC ĐÁNG NHỚ</h2>
+    </div>
+    <div id="pr5-gallery" class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-4"></div>
+  </div>
+</section>
+
+    <!-- FOOTER -->
+    <footer id="footer" class="py-16 px-6 bg-navy border-t border-gold/20">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-12 items-start">
+          <!-- MC Info -->
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 rounded-full bg-cream/20 flex items-center justify-center border border-gold/40">
+              <i data-lucide="user" class="w-7 h-7 text-gold/70"></i>
+            </div>
+            <div>
+              <h3 id="footer-name" class="font-display text-xl font-bold text-cream">HOÀNG MINH TUẤN</h3>
+              <p class="text-cream/60 text-sm">Professional MC &amp; Event Host</p>
+            </div>
+          </div>
+
+          <!-- Contact -->
+          <div class="space-y-3">
+            <h4 class="text-gold text-sm font-semibold tracking-wider uppercase mb-4">Liên Hệ</h4>
+            <div class="flex items-center gap-3 text-cream/70 text-sm">
+              <i data-lucide="mail" class="w-4 h-4 text-gold/80"></i>
+              <span id="footer-email">hoangminhtuan100599@gmail.com</span>
+            </div>
+            <div class="flex items-center gap-3 text-cream/70 text-sm">
+              <i data-lucide="phone" class="w-4 h-4 text-gold/80"></i>
+              <span id="footer-phone">086 8950755</span>
+            </div>
+            <div class="flex items-center gap-3 text-cream/70 text-sm">
+              <i data-lucide="map-pin" class="w-4 h-4 text-gold/80"></i>
+              <span>TP. Hồ Chí Minh, Việt Nam</span>
+            </div>
+          </div>
+
+          <!-- Social -->
+          <div>
+            <h4 class="text-gold text-sm font-semibold tracking-wider uppercase mb-4">Kết Nối</h4>
+            <div class="flex gap-3">
+              <a href="https://www.facebook.com/hoangtuan10599" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full gold-border bg-navy/50 flex items-center justify-center hover:bg-gold/20 transition-colors"><i data-lucide="facebook" class="w-4 h-4 text-cream/60"></i></a>
+              <a href="https://www.tiktok.com/@mchoangtuan" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full gold-border bg-navy/50 flex items-center justify-center hover:bg-gold/20 transition-colors"><svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4 fill-current text-cream/60"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+              <a href="https://www.instagram.com/hmt10599" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full gold-border bg-navy/50 flex items-center justify-center hover:bg-gold/20 transition-colors"><i data-lucide="instagram" class="w-4 h-4 text-cream/60"></i></a>
+            </div>
+            <a href="../form.html" class="inline-block mt-6 px-6 py-3 bg-gold text-navy font-semibold text-sm rounded-lg hover:bg-gold-light transition-colors">Liên Hệ Ngay</a>
+          </div>
+        </div>
+        <div class="mt-12 pt-8 border-t border-gold/10 text-center text-cream/40 text-sm">
+          © 2026 MC Portfolio. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox cursor-zoom-out">
+      <img id="lightbox-image" alt="Ảnh phóng to" class="max-w-[95vw] max-h-[95vh] w-auto h-auto object-contain rounded-2xl shadow-2xl border border-gold/20">
+    </div>
+
+    <script>
+      // Mobile menu
+      document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+      });
+
+      document.querySelectorAll('#mobile-menu a').forEach((a) => {
+        a.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden'));
+      });
+
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
+
+      function openLightbox(src, alt = '') {
+        lightboxImage.src = src;
+        lightboxImage.alt = alt;
+        lightbox.classList.add('active');
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        lightboxImage.src = '';
+      }
+
+      lightbox.addEventListener('click', closeLightbox);
+      lightboxImage.addEventListener('click', closeLightbox);
+
+      // Partner logos
+      const partnerLogos = [
+        'VietcomBank.jpg',
+        'Agribank.jpg',
+        'AIA.jpg',
+        'Bảo_Việt.jpg',
+        'BIDV.jpg',
+        'Herbalife.jpg',
+        'Long_Châu.jpg',
+        'Bia_SG.jpg',
+        'Nestle.jpg',
+        'TTH.jpg',
+        'windx.jpg',
+        'Nissan.jpg',
+        'Pharma.jpg',
+        'SG_Tourist.jpg',
+        'TH_TrueMilk.jpg',
+        'Việt_Lào_Thái.jpg',
+        'Viet_Travel.jpg',
+        'FKT.jpg',
+        'Vinamilk.jpg'
+      ];
+
+      const partnerLogosContainer = document.getElementById('partner-logos');
+      partnerLogos.forEach((fileName) => {
+        const brandName = fileName.replace(/\.[^.]+$/, '').replace(/_/g, ' ');
+        const item = document.createElement('div');
+        item.className = 'flex items-center justify-center p-4 h-24 lg:h-28 bg-cream rounded-lg border border-gold/10 hover:border-gold/40 transition-colors';
+
+        const image = document.createElement('img');
+        image.loading = 'lazy';
+        image.className = 'max-h-16 lg:max-h-20 max-w-full w-full object-contain';
+        image.src = `../image/logo/${fileName}`;
+        image.alt = brandName;
+
+        item.appendChild(image);
+        partnerLogosContainer.appendChild(item);
+      });
+
+      // Pr5 gallery
+      const pr5Images = [
+        '9087f86e79d5f7e81513d6268f584e25.jpg',
+        'IMG_0223.JPG',
+        'IMG_0318.JPG',
+        'IMG_0386.JPG',
+        'IMG_1198.JPG',
+        'IMG_1302.jpg',
+        'IMG_1451.JPG',
+        'IMG_1464.jpg',
+        'IMG_1484.jpg',
+        'IMG_2165.PNG',
+        'IMG_2176.JPG',
+        'IMG_2197.JPG',
+        'IMG_2583.JPG',
+        'IMG_2591.JPG',
+        'IMG_2596.JPG',
+        'IMG_2615.JPG',
+        'IMG_2622.JPG',
+        'IMG_2623.JPG',
+        'IMG_2632.JPG',
+        'IMG_2747.JPG',
+        'IMG_2992.JPG',
+        'IMG_3027.jpg',
+        'IMG_3095.jpg',
+        'IMG_3152.jpg',
+        'IMG_3159.JPG',
+        'IMG_3213.JPG',
+        'IMG_3272.JPG',
+        'IMG_3337.PNG',
+        'IMG_3340.JPG',
+        'IMG_3445.JPG',
+        'IMG_3452.JPG',
+        'IMG_3453.JPG',
+        'IMG_3521.JPG',
+        'IMG_3689.JPG',
+        'IMG_3817.JPG',
+        'IMG_3864.JPG',
+        'IMG_8021.jpg',
+        'IMG_8493.JPG',
+        'IMG_8519.JPG',
+        'IMG_9847.JPG',
+        'MTT06088.jpeg',
+        'MTT06090.jpeg'
+      ];
+
+      const pr5Gallery = document.getElementById('pr5-gallery');
+      pr5Images.forEach((fileName) => {
+        const item = document.createElement('button');
+        item.type = 'button';
+        item.className = 'card-hover gold-border rounded-2xl overflow-hidden bg-cream shadow-sm text-left focus:outline-none focus:ring-2 focus:ring-gold/60';
+
+        const image = document.createElement('img');
+        image.loading = 'lazy';
+        image.className = 'w-full aspect-[3/4] object-contain bg-cream';
+        image.src = `../image/video/Ảnh làm Pr5/${fileName}`;
+        image.alt = fileName;
+
+        item.appendChild(image);
+        item.addEventListener('click', () => openLightbox(image.currentSrc || image.src, image.alt));
+        pr5Gallery.appendChild(item);
+      });
+
+      // Hero image carousel
+      const heroImages = ['../image/MC1.JPG', '../image/MC2.jpg', '../image/MC3.JPG'];
+      const heroImage = document.getElementById('hero-carousel-image');
+      const prevBtn = document.getElementById('hero-carousel-prev');
+      const nextBtn = document.getElementById('hero-carousel-next');
+      const dots = Array.from(document.querySelectorAll('.hero-carousel-dot'));
+      let heroIndex = 0;
+
+      function renderHeroImage() {
+        heroImage.src = heroImages[heroIndex];
+        dots.forEach((dot, index) => {
+          dot.className = `hero-carousel-dot h-2.5 w-2.5 rounded-full shadow ${index === heroIndex ? 'bg-gold' : 'bg-white/50'}`;
+        });
+      }
+
+      prevBtn.addEventListener('click', () => {
+        heroIndex = (heroIndex - 1 + heroImages.length) % heroImages.length;
+        renderHeroImage();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        heroIndex = (heroIndex + 1) % heroImages.length;
+        renderHeroImage();
+      });
+
+      renderHeroImage();
+
+      // Init Lucide
+      lucide.createIcons();
+
+      // Element SDK
+  const defaultConfig = {
+    mc_name: 'HOÀNG MINH TUẤN',
+    mc_title: 'MC Sự Kiện – MC Hội Nghị – MC Tiệc Cưới – Event Host',
+    mc_intro: 'Với hơn 10 năm kinh nghiệm dẫn dắt hàng nghìn sự kiện từ tiệc cưới sang trọng đến hội nghị quốc tế, tôi mang đến năng lượng tích cực và sự chuyên nghiệp tuyệt đối cho mọi chương trình.',
+    mc_email: 'hoangminhtuan10599@gmail.com',
+    mc_phone: '086 8950755',
+    background_color: '#F5F3F0',
+    surface_color: '#EBE7E1',
+    text_color: '#1B2A4A',
+    primary_color: '#D4AF37',
+    secondary_color: '#0F1A2E',
+    font_family: 'Playfair Display',
+    font_size: 16
+  };
+
+  function applyConfig(config) {
+    const c = { ...defaultConfig, ...config };
+    document.getElementById('hero-name').textContent = c.mc_name;
+    document.getElementById('nav-name').textContent = c.mc_name;
+    document.getElementById('footer-name').textContent = c.mc_name;
+    document.getElementById('hero-title').textContent = c.mc_title;
+    document.getElementById('hero-intro').textContent = c.mc_intro;
+    document.getElementById('footer-email').textContent = c.mc_email;
+    document.getElementById('footer-phone').textContent = c.mc_phone;
+
+    const font = c.font_family || defaultConfig.font_family;
+    document.querySelectorAll('.font-display, h1, h2, h3').forEach(el => {
+      el.style.fontFamily = `${font}, serif`;
+    });
+
+    const size = c.font_size || defaultConfig.font_size;
+    document.body.style.fontSize = `${size}px`;
+
+    document.body.style.backgroundColor = c.background_color;
+    document.documentElement.style.setProperty('--gold', c.primary_color);
+  }
+
+  if (window.elementSdk) {
+    window.elementSdk.init({
+      defaultConfig,
+      onConfigChange: async (config) => applyConfig(config),
+      mapToCapabilities: (config) => {
+        const c = { ...defaultConfig, ...config };
+        return {
+          recolorables: [
+            { get: () => c.background_color, set: (v) => { c.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+            { get: () => c.surface_color, set: (v) => { c.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+            { get: () => c.text_color, set: (v) => { c.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+            { get: () => c.primary_color, set: (v) => { c.primary_color = v; window.elementSdk.setConfig({ primary_color: v }); } },
+            { get: () => c.secondary_color, set: (v) => { c.secondary_color = v; window.elementSdk.setConfig({ secondary_color: v }); } }
+          ],
+          borderables: [],
+          fontEditable: { get: () => c.font_family, set: (v) => { c.font_family = v; window.elementSdk.setConfig({ font_family: v }); } },
+          fontSizeable: { get: () => c.font_size, set: (v) => { c.font_size = v; window.elementSdk.setConfig({ font_size: v }); } }
+        };
+      },
+      mapToEditPanelValues: (config) => {
+        const c = { ...defaultConfig, ...config };
+        return new Map([
+          ['mc_name', c.mc_name],
+          ['mc_title', c.mc_title],
+          ['mc_intro', c.mc_intro],
+          ['mc_email', c.mc_email],
+          ['mc_phone', c.mc_phone]
+        ]);
+      }
+    });
+  }
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0afb837713f219a',t:'MTc4MTMzOTI4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

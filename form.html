@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="vi"><head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260710-05-9ed98a3"}');
+</script><script src="/_sdk/f432b76fb310b513.telemetry_sdk.js" integrity="sha512-9FJQ55EKmmqhyyik8BhrMVfm0+iYYfb8uOlRsjtkxJMEI97qOVEI4PnHohDjQAtvAep0IOEpdQ64eki0sz62ug=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đặt Lịch Tư Vấn Cưới</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/0179d719c431a79e.data_sdk.js" integrity="sha512-OsRvJkI5GkC3MJQcgotQYotpzrMSX415GiKKgvYdxQEEkzD/fdchShO2FMSy0PJr/tiINMXOk5Vl2zAgg6bUiA=="></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+  body { font-family: 'Poppins', sans-serif; }
+  h1, h2, h3, .font-display { font-family: 'Playfair Display', serif; }
+
+  .booking-card {
+    box-shadow: 0 24px 60px -20px rgba(212,175,55,0.18), 0 10px 30px -15px rgba(26,26,26,0.10);
+  }
+  .gold-topline {
+    background: linear-gradient(90deg, #E8CE7A, #D4AF37, #B8912A, #D4AF37, #E8CE7A);
+  }
+  .gold-divider {
+    background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  }
+
+  .lux-input {
+    background: #ffffff;
+    border: 1px solid #E8E8E8;
+    border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(26,26,26,0.04);
+    transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+  }
+  .lux-input:focus {
+    outline: none;
+    border-color: #D4AF37;
+    box-shadow: 0 0 0 4px rgba(212,175,55,0.12);
+  }
+  .lux-input.field-error {
+    border-color: #C0392B;
+    box-shadow: 0 0 0 4px rgba(192,57,43,0.10);
+  }
+
+  .lux-submit {
+    border-radius: 16px;
+    transition: transform .25s ease, box-shadow .25s ease, background .35s ease;
+    box-shadow: 0 12px 26px -12px rgba(212,175,55,0.55);
+  }
+  .lux-submit:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 34px -12px rgba(212,175,55,0.65);
+    background-image: linear-gradient(120deg, #E8CE7A, #D4AF37 55%, #B8912A);
+  }
+  .lux-submit:disabled { opacity: .7; cursor: not-allowed; }
+
+  .spinner {
+    width: 18px; height: 18px;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin .7s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .reveal {
+    animation: reveal .7s ease both;
+  }
+  @keyframes reveal {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .success-pop { animation: pop .5s cubic-bezier(.2,.8,.3,1.2) both; }
+  @keyframes pop {
+    from { opacity:0; transform: scale(.9); }
+    to { opacity:1; transform: scale(1); }
+  }
+
+  .close-form-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 9999px;
+    border: 1px solid #E8E8E8;
+    background: #ffffff;
+    color: #666666;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s ease;
+  }
+  .close-form-btn:hover {
+    border-color: #D4AF37;
+    color: #D4AF37;
+    transform: translateY(-1px);
+  }
+</style>
+  <script src="/_sdk/9432170dbd2ae0df.resizing_sdk.js" type="text/javascript" integrity="sha512-FeT+58sb1f9ejWPWFjCbJvTT+SDwGV+ngrHUnlO7TWEOoqwOLj6p256kO3vOL7DIWl1cIgrobiof8v2bOigwPg=="></script>
+ </head>
+ <body data-template-id="__page-root" class="min-h-screen w-full bg-white text-[#1A1A1A]" style="background: rgb(255, 255, 255);">
+  <main class="w-full px-4 py-14 sm:py-20 flex justify-center">
+   <section class="w-full" style="max-width: 850px;">
+    <div class="booking-card reveal relative bg-white rounded-3xl overflow-hidden border border-[#F0F0F0]">
+       <button id="back-btn" type="button" class="close-form-btn absolute top-4 right-4 sm:top-6 sm:right-6 z-20" aria-label="Quay lại trang trước">
+        <i data-lucide="x" style="width:18px;height:18px;"></i>
+       </button>
+     <div class="gold-topline h-1.5 w-full"></div>
+     <div class="px-6 sm:px-12 py-10 sm:py-14"><!-- Header -->
+      <header class="text-center mb-9">
+       <div class="inline-flex items-center gap-2 text-[#D4AF37] mb-4"><i data-lucide="sparkles" style="width:18px;height:18px;"></i> <span data-template-id="eyebrow" class="canva-text tracking-[0.25em] uppercase" style="font-size: 16px; color: rgb(212, 175, 55); font-weight: 500; font-style: normal;">Luxury Wedding Host</span> <i data-lucide="sparkles" style="width:18px;height:18px;"></i>
+       </div>
+       <h2 data-template-id="section-title" class="canva-text leading-tight" style="color: rgb(26, 26, 26); font-weight: 600; font-style: normal; font-size: 42px;">Đặt lịch tư vấn</h2>
+       <div class="gold-divider h-px w-28 mx-auto my-5"></div>
+       <p data-template-id="section-subtitle" class="canva-text max-w-xl mx-auto leading-relaxed" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 16px;">Hãy để MC Hoàng Tuấn đồng hành cùng bạn trong ngày trọng đại. Điền thông tin bên dưới để được tư vấn và xác nhận lịch sớm nhất.</p>
+      </header><!-- Form -->
+      <form id="booking-form" novalidate="" class="space-y-6">
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+        <div><label data-template-id="label-name" for="f-name" class="canva-text block mb-2 font-medium" style="color: rgb(26, 26, 26); font-weight: 500; font-style: normal; font-size: 14px;">Họ và tên *</label> <input id="f-name" name="full_name" type="text" data-template-id="input-name" class="canva-input lux-input w-full px-4 py-3.5 text-[#1A1A1A]" placeholder="Nhập họ và tên của bạn" style="background: rgb(255, 255, 255); color: rgb(26, 26, 26); font-weight: 400; font-style: normal; font-size: 15px;">
+         <p class="err-msg hidden text-[#C0392B] mt-1.5" style="font-size:13px;" data-for="f-name"></p>
+        </div>
+        <div><label data-template-id="label-phone" for="f-phone" class="canva-text block mb-2 font-medium" style="color: rgb(26, 26, 26); font-weight: 500; font-style: normal; font-size: 14px;">Số điện thoại *</label> <input id="f-phone" name="phone" type="tel" data-template-id="input-phone" class="canva-input lux-input w-full px-4 py-3.5 text-[#1A1A1A]" placeholder="Ví dụ: 090 123 4567" style="background: rgb(255, 255, 255); color: rgb(26, 26, 26); font-weight: 400; font-style: normal; font-size: 15px;">
+         <p class="err-msg hidden text-[#C0392B] mt-1.5" style="font-size:13px;" data-for="f-phone"></p>
+        </div>
+        <div><label data-template-id="label-email" for="f-email" class="canva-text block mb-2 font-medium" style="color: rgb(26, 26, 26); font-weight: 500; font-style: normal; font-size: 14px;">Email</label> <input id="f-email" name="email" type="email" data-template-id="input-email" class="canva-input lux-input w-full px-4 py-3.5 text-[#1A1A1A]" placeholder="email@example.com" style="background: rgb(255, 255, 255); color: rgb(26, 26, 26); font-weight: 400; font-style: normal; font-size: 15px;">
+         <p class="err-msg hidden text-[#C0392B] mt-1.5" style="font-size:13px;" data-for="f-email"></p>
+        </div>
+        <div><label data-template-id="label-service" for="f-service" class="canva-text block mb-2 font-medium" style="color: rgb(26, 26, 26); font-weight: 500; font-style: normal; font-size: 14px;">Dịch vụ muốn đặt</label> <select id="f-service" name="service" data-template-id="input-service" class="canva-input lux-input w-full px-4 py-3.5 text-[#1A1A1A] bg-white" style="background: rgb(255, 255, 255); color: rgb(26, 26, 26); font-size: 15px;"> <option value="MC Wedding" data-template-id="opt-1" style="color: rgb(26, 26, 26); font-weight: 400; font-style: normal; font-size: 16px;">MC Wedding</option> <option value="Wedding Host Luxury" data-template-id="opt-2" style="color: rgb(26, 26, 26); font-weight: 400; font-style: normal; font-size: 16px;">Wedding Host Luxury</option> <option value="MC Song Ngữ" data-template-id="opt-3" style="color: rgb(26, 26, 26); font-weight: 400; font-style: normal; font-size: 16px;">MC Song Ngữ</option> <option value="MC Sự kiện" data-template-id="opt-4" style="color: rgb(26, 26, 26); font-weight: 400; font-style: normal; font-size: 16px;">MC Sự kiện</option> <option value="Tư vấn khác" data-template-id="opt-5" style="color: rgb(26, 26, 26); font-weight: 400; font-style: normal; font-size: 16px;">Tư vấn khác</option> </select>
+        </div>
+        
+        <div><label for="f-location" class="canva-text block mb-2 font-medium" style="color: rgb(26,26,26);font-weight:500;font-size:14px;">Địa điểm</label>
+        <input id="f-location" name="location" type="text" class="canva-input lux-input w-full px-4 py-3.5 text-[#1A1A1A]" placeholder="Ví dụ: Hà Nội, TP.HCM"></div>
+        <div><label for="f-budget" class="canva-text block mb-2 font-medium" style="color: rgb(26,26,26);font-weight:500;font-size:14px;">Ngân sách</label>
+        <input id="f-budget" name="budget" type="text" class="canva-input lux-input w-full px-4 py-3.5 text-[#1A1A1A]" placeholder="Ví dụ: 5.000.000 VNĐ"></div>
+<div><label data-template-id="label-date" for="f-date" class="canva-text block mb-2 font-medium" style="color: rgb(26, 26, 26); font-weight: 500; font-style: normal; font-size: 14px;">Ngày mong muốn</label> <input id="f-date" name="preferred_date" type="date" data-template-id="input-date" class="canva-input lux-input w-full px-4 py-3.5 text-[#1A1A1A]" style="background: rgb(255, 255, 255); color: rgb(26, 26, 26); font-size: 15px;">
+        </div>
+        <div><label data-template-id="label-time" for="f-time" class="canva-text block mb-2 font-medium" style="color: rgb(26, 26, 26); font-weight: 500; font-style: normal; font-size: 14px;">Giờ mong muốn</label> <input id="f-time" name="preferred_time" type="time" data-template-id="input-time" class="canva-input lux-input w-full px-4 py-3.5 text-[#1A1A1A]" style="background: rgb(255, 255, 255); color: rgb(26, 26, 26); font-size: 15px;">
+        </div>
+       </div>
+       <div><label data-template-id="label-note" for="f-note" class="canva-text block mb-2 font-medium" style="color: rgb(26, 26, 26); font-weight: 500; font-style: normal; font-size: 14px;">Ghi chú</label> <textarea id="f-note" name="note" rows="4" data-template-id="input-note" class="canva-input lux-input w-full px-4 py-3.5 text-[#1A1A1A] resize-y" style="background: rgb(255, 255, 255); color: rgb(26, 26, 26); font-weight: 400; font-style: normal; font-size: 15px;">Chia sẻ thêm về sự kiện, số lượng khách, phong cách mong muốn...</textarea>
+       </div>
+       <p id="error-message" data-template-id="error-message" class="canva-text hidden text-center text-[#C0392B] py-2" style="font-size: 14px; color: rgb(192, 57, 43);"></p>
+       <div class="pt-2"><button type="submit" id="submit-btn" class="lux-submit canva-button w-full flex items-center justify-center gap-2 py-4 text-white font-semibold" style="background-color:#D4AF37;"> <span id="submit-label" data-template-id="submit-button" style="color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 17px;">Đặt lịch ngay</span> <span id="submit-loading" class="hidden items-center gap-2"> <span class="spinner"></span> <span data-template-id="submit-loading-label" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 17px;">Đang gửi...</span> </span> </button>
+        <p data-template-id="privacy-note" class="canva-text text-center text-[#666666] mt-3" style="font-size: 12px; color: rgb(102, 102, 102); font-weight: 400; font-style: normal;">Thông tin của bạn được bảo mật và chỉ dùng để liên hệ tư vấn.</p>
+       </div>
+      </form><!-- Success state -->
+      <div id="success-state" class="hidden text-center py-6">
+       <div class="success-pop mx-auto mb-5 flex items-center justify-center rounded-full" style="width:72px;height:72px;background:rgba(212,175,55,0.12);color:#D4AF37;"><i data-lucide="check" style="width:34px;height:34px;"></i>
+       </div>
+       <h3 data-template-id="success-title" class="canva-text mb-3" style="color: rgb(26, 26, 26); font-weight: 600; font-style: normal; font-size: 28px;">Cảm ơn bạn!</h3>
+       <p data-template-id="success-message" class="canva-text max-w-md mx-auto text-[#666666] leading-relaxed mb-7" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 15px;">Yêu cầu đặt lịch của bạn đã được ghi nhận. MC Hoàng Tuấn sẽ liên hệ với bạn trong thời gian sớm nhất để xác nhận lịch tư vấn.</p><button type="button" id="again-btn" class="lux-submit canva-button inline-flex items-center justify-center gap-2 px-8 py-3.5 text-white font-semibold" style="background-color:#D4AF37;"> <i data-lucide="rotate-ccw" style="width:16px;height:16px;"></i> <span data-template-id="success-again-button" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 15px;">Gửi yêu cầu khác</span> </button>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <script src="/_sdk/719055fef2a85d14.editing_sdk.js" integrity="sha512-kFqrdGgIiTOsu307feB5Cy3JVP9IayftsmCIZ0csxYBGuBmJQPhyvcnmKR8F0fTW97h5s1gAvz3SumI8zJ6OxQ=="></script>
+  <script>
+    lucide.createIcons();
+
+    const API_URL = "/.netlify/functions/booking";
+
+    const form = document.getElementById('booking-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const submitLabel = document.getElementById('submit-label');
+    const submitLoading = document.getElementById('submit-loading');
+    const errorMsg = document.getElementById('error-message');
+    const successState = document.getElementById('success-state');
+    const backBtn = document.getElementById('back-btn');
+
+    backBtn.addEventListener('click', () => {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = 'index.html';
+      }
+    });
+
+    function showError(el, message) {
+      el.classList.add('field-error');
+      const msg = document.querySelector('.err-msg[data-for="' + el.id + '"]');
+      if (msg) {
+        msg.textContent = message;
+        msg.classList.remove('hidden');
+      }
+    }
+
+    function clearError(el) {
+      el.classList.remove('field-error');
+      const msg = document.querySelector('.err-msg[data-for="' + el.id + '"]');
+      if (msg) {
+        msg.classList.add('hidden');
+      }
+    }
+
+    ['f-name', 'f-phone', 'f-email'].forEach(id => {
+      const el = document.getElementById(id);
+      el.addEventListener('input', () => clearError(el));
+    });
+
+    function setLoading(on) {
+      submitBtn.disabled = on;
+      submitLabel.classList.toggle('hidden', on);
+      submitLoading.classList.toggle('hidden', !on);
+      submitLoading.classList.toggle('flex', on);
+    }
+
+    function validate() {
+      let ok = true;
+      const name = document.getElementById('f-name');
+      const phone = document.getElementById('f-phone');
+      const email = document.getElementById('f-email');
+
+      if (!name.value.trim()) { showError(name, 'Vui lòng nhập họ và tên.'); ok = false; }
+      if (!phone.value.trim()) {
+        showError(phone, 'Vui lòng nhập số điện thoại.'); ok = false;
+      } else if (!/^[0-9+\s().-]{6,}$/.test(phone.value.trim())) {
+        showError(phone, 'Số điện thoại chưa hợp lệ.'); ok = false;
+      }
+      if (email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+        showError(email, 'Email chưa hợp lệ.'); ok = false;
+      }
+      return ok;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorMsg.classList.add('hidden');
+
+      if (!validate()) return;
+
+      setLoading(true);
+
+      const record = {
+        full_name: document.getElementById('f-name').value.trim(),
+        phone: document.getElementById('f-phone').value.trim(),
+        email: document.getElementById('f-email').value.trim(),
+        service: document.getElementById('f-service').value,
+        location: document.getElementById('f-location').value.trim(),
+        budget: document.getElementById('f-budget').value.trim(),
+        preferred_date: document.getElementById('f-date').value,
+        preferred_time: document.getElementById('f-time').value,
+        note: document.getElementById('f-note').value.trim()
+      };
+
+      try {
+        const response = await fetch(API_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            fullName: record.full_name,
+            phone: record.phone,
+            email: record.email,
+            service: record.service,
+            location: record.location,
+            budget: record.budget,
+            date: record.preferred_date,
+            time: record.preferred_time,
+            note: record.note
+          })
+        });
+
+        const result = await response.json();
+
+        if (!result.success) {
+          throw new Error(result.error);
+        }
+
+        form.reset();
+        form.classList.add('hidden');
+        successState.classList.remove('hidden');
+        lucide.createIcons();
+      } catch (error) {
+        errorMsg.textContent = 'Đã có lỗi xảy ra. Vui lòng thử lại.';
+        errorMsg.classList.remove('hidden');
+      } finally {
+        setLoading(false);
+      }
+    });
+
+    document.getElementById('again-btn').addEventListener('click', () => {
+      successState.classList.add('hidden');
+      form.classList.remove('hidden');
+      form.classList.add('reveal');
+    });
+  </script>
+</body></html>
