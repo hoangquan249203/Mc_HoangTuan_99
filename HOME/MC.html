@@ -30,6 +30,177 @@
       }
     }
     </script>
+    <style>
+      .soft-reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity .8s ease, transform .8s ease;
+      }
+      .soft-reveal.in-view {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .gold-divider-line {
+        width: 84px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+      }
+
+      .lux-panel {
+        background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(245,243,240,.95));
+        border: 1px solid rgba(212,175,55,.16);
+        border-radius: 24px;
+        box-shadow: 0 20px 50px -30px rgba(27,42,74,.35);
+      }
+
+      .lux-panel:hover {
+        border-color: rgba(212,175,55,.28);
+      }
+
+      .lux-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 9999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #F5F3F0;
+        border: 1px solid rgba(212,175,55,.22);
+        color: #D4AF37;
+        flex: none;
+        box-shadow: 0 0 0 8px #F5F3F0;
+      }
+
+      .lux-icon i {
+        width: 24px;
+        height: 24px;
+      }
+
+      .step-track {
+        position: relative;
+        padding-left: 0;
+        isolation: isolate;
+      }
+
+      .step-track::before {
+        content: "";
+        position: absolute;
+        left: 28px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, transparent, rgba(212,175,55,.85), rgba(212,175,55,.85), transparent);
+        z-index: 0;
+      }
+
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 56px minmax(0, 1fr);
+        column-gap: 1.5rem;
+        align-items: start;
+        position: relative;
+        z-index: 1;
+      }
+
+      .timeline-marker {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 0.15rem;
+      }
+
+      .timeline-card {
+        min-height: 88px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .timeline-card h3 {
+        font-size: 1.15rem;
+        line-height: 1.35;
+      }
+
+      .timeline-card p {
+        font-size: 0.82rem;
+        line-height: 1.55;
+      }
+
+      .prepare-font,
+      .receive-font,
+      .receive-font h3,
+      .receive-font p {
+        font-family: 'Playfair Display', serif;
+      }
+
+      .hero-gold {
+        color: #E8D48B;
+      }
+
+      .hero-muted {
+        color: rgba(232, 212, 139, .78);
+      }
+
+      @media (max-width: 639px) {
+        .step-track::before {
+          left: 27px;
+        }
+
+        .timeline-item {
+          grid-template-columns: 54px minmax(0, 1fr);
+          column-gap: 1rem;
+        }
+      }
+
+      .faq-card {
+        border: 1px solid rgba(212,175,55,.18);
+        border-radius: 20px;
+        background: rgba(255,255,255,.82);
+        overflow: hidden;
+        box-shadow: 0 14px 36px -28px rgba(27,42,74,.4);
+        transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+      }
+
+      .faq-card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(212,175,55,.34);
+        box-shadow: 0 18px 42px -28px rgba(27,42,74,.48);
+      }
+
+      .faq-summary {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.1rem 1.25rem;
+        cursor: pointer;
+        color: #1B2A4A;
+        font-weight: 700;
+      }
+
+      .faq-summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .faq-icon {
+        color: #D4AF37;
+        transition: transform .25s ease;
+        flex: none;
+      }
+
+      .faq-card[open] .faq-icon {
+        transform: rotate(180deg);
+      }
+
+      .faq-content {
+        padding: 0 1.25rem 1.2rem;
+        color: rgba(27,42,74,.72);
+        line-height: 1.75;
+      }
+    </style>
     <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   </head>
   <body class="bg-cream text-navy font-body">
@@ -81,41 +252,48 @@
      </div><!-- Info -->
      <div class="space-y-6">
       <div class="animate-fade-up animate-delay-1">
-       <p class="text-gold text-sm font-semibold tracking-[0.3em] uppercase mb-2">Professional MC</p>
-       <h1 id="hero-name" class="font-display text-5xl lg:text-6xl font-900 leading-tight text-navy mt-4">HOÀNG MINH TUẤN</h1>
+       <p class="hero-gold text-sm font-semibold tracking-[0.3em] uppercase mb-2" style="font-family:'Playfair Display',serif;">Professional MC</p>
+       <h1 id="hero-name" class="font-display text-5xl lg:text-6xl font-900 leading-tight hero-gold mt-4">HOÀNG MINH TUẤN</h1>
       </div>
-      <p id="hero-title" class="text-navy/60 text-lg animate-fade-up animate-delay-2">MC Sự Kiện – MC Hội Nghị – MC Tiệc Cưới – Event Host</p>
-      <p id="hero-intro" class="text-navy/50 leading-relaxed animate-fade-up animate-delay-3">Với hơn 3 năm kinh nghiệm dẫn dắt hàng nghìn sự kiện từ tiệc cưới sang trọng đến hội nghị quốc tế, tôi mang đến năng lượng tích cực và sự chuyên nghiệp tuyệt đối cho mọi chương trình.</p><!-- Stats -->
+      <p id="hero-title" class="hero-muted text-lg animate-fade-up animate-delay-2" style="font-family:'Playfair Display',serif;">MC Sự Kiện – MC Hội Nghị – MC Tiệc Cưới – Event Host</p>
+      <div id="hero-intro" class="text-navy leading-relaxed animate-fade-up animate-delay-3" style="font-family:'Playfair Display',serif;">
+        <p>"Với hơn 3 năm kinh nghiệm dẫn dắt hơn 500 lễ cưới sang trọng trên khắp Việt Nam, MC Hoàng Tuấn là cái tên được tin tưởng bởi những cặp đôi yêu cầu sự hoàn hảo.</p>
+        <p class="mt-4">Phong cách dẫn tinh tế, lịch lãm nhưng đầy cảm xúc. Mỗi khoảnh khắc được chạm đến bằng sự chân thành, tạo nên dòng chảy tự nhiên cho đêm tiệc.</p>
+        <p class="mt-4">Giá trị mang lại: Một buổi lễ trọn vẹn cảm xúc, nơi mọi khách mời đều cảm nhận được tình yêu và hạnh phúc của cô dâu chú rể."</p>
+      </div>
+    </p>
+    
+    <!-- Stats -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 animate-fade-up animate-delay-4">
        <div class="text-center p-4 rounded-xl gold-border bg-cream-dark">
-        <div class="stat-number font-display text-3xl font-bold">
+        <div class="stat-number font-display text-3xl font-bold hero-gold">
          3+
         </div>
-        <div class="text-navy/40 text-xs mt-1">
+        <div class="hero-muted text-xs mt-1" style="font-family:'Playfair Display',serif;">
          Năm kinh nghiệm
         </div>
        </div>
        <div class="text-center p-4 rounded-xl gold-border bg-cream-dark">
-        <div class="stat-number font-display text-3xl font-bold">
+        <div class="stat-number font-display text-3xl font-bold hero-gold">
          50+
         </div>
-        <div class="text-navy/40 text-xs mt-1">
+        <div class="hero-muted text-xs mt-1" style="font-family:'Playfair Display',serif;">
          Sự kiện
         </div>
        </div>
        <div class="text-center p-4 rounded-xl gold-border bg-cream-dark">
-        <div class="stat-number font-display text-3xl font-bold">
+        <div class="stat-number font-display text-3xl font-bold hero-gold">
          200+
         </div>
-        <div class="text-navy/40 text-xs mt-1">
+        <div class="hero-muted text-xs mt-1" style="font-family:'Playfair Display',serif;">
          Khách hàng
         </div>
        </div>
        <div class="text-center p-4 rounded-xl gold-border bg-cream-dark">
-        <div class="stat-number font-display text-3xl font-bold">
+        <div class="stat-number font-display text-3xl font-bold hero-gold">
          4.9
         </div>
-        <div class="text-navy/40 text-xs mt-1">
+        <div class="hero-muted text-xs mt-1" style="font-family:'Playfair Display',serif;">
          Đánh giá TB
         </div>
        </div>
@@ -150,44 +328,251 @@
   </div>
 </section>
 
-    <!-- SECTION 2: SERVICES -->
-    <section id="services" class="py-20 px-6 bg-cream-dark/40">
-   <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-16">
-     <p class="text-gold text-sm tracking-[0.3em] uppercase mb-3">What I Do</p>
-     <h2 class="font-display text-4xl lg:text-5xl font-bold text-navy mt-4">DỊCH VỤ CỦA TÔI</h2>
-    </div>
-    <div class="grid md:grid-cols-3 gap-8"><!-- Service 1 -->
-     <div class="card-hover gold-border rounded-2xl overflow-hidden bg-cream group">
-      <div class="h-48 bg-gradient-to-br from-gold/10 to-gold/5 flex items-center justify-center relative overflow-hidden"><i data-lucide="calendar-check" class="w-16 h-16 text-gold/60 group-hover:text-gold transition-colors"></i>
-       <div class="absolute inset-0 bg-gold/0 group-hover:bg-gold/5 transition-colors"></div>
+    <!-- SECTION 2: SERVICES / INFO BLOCKS -->
+    <section id="services" class="py-20 px-6 bg-cream">
+      <div class="max-w-7xl mx-auto space-y-20">
+        <!-- WHY CHOOSE ME -->
+        <div class="soft-reveal">
+          <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-4 mb-4">
+              <span class="gold-divider-line"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-gold"></span>
+              <span class="gold-divider-line"></span>
+            </div>
+            <p class="text-gold text-sm tracking-[0.3em] uppercase mb-3">Why Choose Me</p>
+            <h2 class="font-display text-4xl lg:text-5xl font-bold text-navy mt-4">VÌ SAO CHỌN TÔI</h2>
+            <p class="mt-3 text-lg italic text-gold/80">Sự tinh tế trong từng khoảnh khắc</p>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <article class="lux-panel p-7 text-center">
+              <div class="lux-icon mx-auto mb-5">
+                <i data-lucide="feather"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">Kịch bản cá nhân hóa</h3>
+              <p class="text-navy/70 leading-relaxed">Mỗi lễ cưới có kịch bản riêng, viết dựa trên câu chuyện tình yêu của bạn.</p>
+            </article>
+            <article class="lux-panel p-7 text-center">
+              <div class="lux-icon mx-auto mb-5">
+                <i data-lucide="heart"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">Kể chuyện cảm xúc</h3>
+              <p class="text-navy/70 leading-relaxed">Dẫn dắt cảm xúc tinh tế, chạm đến trái tim mọi vị khách.</p>
+            </article>
+            <article class="lux-panel p-7 text-center">
+              <div class="lux-icon mx-auto mb-5">
+                <i data-lucide="clock"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">Quản lý thời gian chuyên nghiệp</h3>
+              <p class="text-navy/70 leading-relaxed">Điều phối timeline chặt chẽ, buổi lễ diễn ra trọn vẹn và đúng nhịp.</p>
+            </article>
+            <article class="lux-panel p-7 text-center">
+              <div class="lux-icon mx-auto mb-5">
+                <i data-lucide="sparkles"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">Phong cách dẫn thanh lịch</h3>
+              <p class="text-navy/70 leading-relaxed">Phong thái chỉn chu, sang trọng, phù hợp với không khí lễ cưới cao cấp.</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- BOOKING TIMELINE -->
+        <div class="soft-reveal">
+          <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-4 mb-4">
+              <span class="gold-divider-line"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-gold"></span>
+              <span class="gold-divider-line"></span>
+            </div>
+            <p class="text-gold text-sm tracking-[0.3em] uppercase mb-3">Booking Timeline</p>
+            <h2 class="font-display text-3xl lg:text-5xl font-bold text-navy mt-4">QUY TRÌNH ĐẶT LỊCH</h2>
+            <p class="mt-3 text-lg italic text-gold/80">Bốn bước thanh lịch để đồng hành cùng bạn</p>
+          </div>
+          <div class="max-w-4xl mx-auto step-track pl-2">
+            <ol class="space-y-8">
+              <li class="timeline-item">
+                <div class="timeline-marker">
+                  <div class="lux-icon">
+                  <i data-lucide="image"></i>
+                </div>
+                </div>
+                <div class="lux-panel timeline-card p-6">
+                  <h3 class="font-display text-2xl font-bold text-navy mb-1">① Khám phá portfolio</h3>
+                  <p class="text-navy/70 leading-relaxed">Tìm hiểu phong cách dẫn và những lễ cưới đã thực hiện.</p>
+                </div>
+              </li>
+              <li class="timeline-item">
+                <div class="timeline-marker">
+                  <div class="lux-icon">
+                  <i data-lucide="file-text"></i>
+                </div>
+                </div>
+                <div class="lux-panel timeline-card p-6">
+                  <h3 class="font-display text-2xl font-bold text-navy mb-1">② Gửi thông tin lễ cưới</h3>
+                  <p class="text-navy/70 leading-relaxed">Chia sẻ ngày cưới, địa điểm và mong muốn của bạn.</p>
+                </div>
+              </li>
+              <li class="timeline-item">
+                <div class="timeline-marker">
+                  <div class="lux-icon">
+                  <i data-lucide="coffee"></i>
+                </div>
+                </div>
+                <div class="lux-panel timeline-card p-6">
+                  <h3 class="font-display text-2xl font-bold text-navy mb-1">③ Buổi gặp tư vấn</h3>
+                  <p class="text-navy/70 leading-relaxed">Cùng trò chuyện để xây dựng kịch bản và timeline riêng.</p>
+                </div>
+              </li>
+              <li class="timeline-item">
+                <div class="timeline-marker">
+                  <div class="lux-icon">
+                  <i data-lucide="check-circle"></i>
+                </div>
+                </div>
+                <div class="lux-panel timeline-card p-6">
+                  <h3 class="font-display text-2xl font-bold text-navy mb-1">④ Xác nhận đặt lịch</h3>
+                  <p class="text-navy/70 leading-relaxed">Hoàn tất xác nhận và sẵn sàng cho ngày trọng đại.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- PREPARE INFORMATION -->
+        <div class="soft-reveal max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-4 mb-4">
+              <span class="gold-divider-line"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-gold"></span>
+              <span class="gold-divider-line"></span>
+            </div>
+            <p class="text-gold text-sm tracking-[0.3em] uppercase mb-3">Prepare Information</p>
+            <h2 class="font-display text-3
+            xl lg:text-5xl font-bold text-navy mt-4">CHUẨN BỊ THÔNG TIN</h2>
+            <p class="mt-3 text-lg italic text-gold/80">Những điều nên chuẩn bị trước buổi tư vấn</p>
+          </div>
+          <div class="lux-panel p-8 lg:p-10 prepare-font">
+            <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-5">
+              <li class="flex items-center gap-3"><span class="lux-icon w-8 h-8"><i data-lucide="check" class="w-4 h-4"></i></span><span class="text-navy/80 font-bold">Ngày cưới</span></li>
+              <li class="flex items-center gap-3"><span class="lux-icon w-8 h-8"><i data-lucide="check" class="w-4 h-4"></i></span><span class="text-navy/80 font-bold">Loại hình buổi lễ</span></li>
+              <li class="flex items-center gap-3"><span class="lux-icon w-8 h-8"><i data-lucide="check" class="w-4 h-4"></i></span><span class="text-navy/80 font-bold">Địa điểm tổ chức</span></li>
+              <li class="flex items-center gap-3"><span class="lux-icon w-8 h-8"><i data-lucide="check" class="w-4 h-4"></i></span><span class="text-navy/80 font-bold">Số lượng khách dự kiến</span></li>
+              <li class="flex items-center gap-3"><span class="lux-icon w-8 h-8"><i data-lucide="check" class="w-4 h-4"></i></span><span class="text-navy/80 font-bold">Ngân sách</span></li>
+              <li class="flex items-center gap-3"><span class="lux-icon w-8 h-8"><i data-lucide="check" class="w-4 h-4"></i></span><span class="text-navy/80 font-bold">Yêu cầu đặc biệt</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- WHAT YOU RECEIVE -->
+        <div class="soft-reveal">
+          <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-4 mb-4">
+              <span class="gold-divider-line"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-gold"></span>
+              <span class="gold-divider-line"></span>
+            </div>
+            <p class="text-gold text-sm tracking-[0.3em] uppercase mb-3">What You Receive</p>
+            <h2 class="font-display text-4xl lg:text-5xl font-bold text-navy mt-4">KHI ĐỒNG HÀNH CÙNG HOÀNG TUẤN</h2>
+            <p class="mt-3 text-lg italic text-gold/80">Những giá trị bạn sẽ nhận được</p>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 receive-font">
+            <article class="lux-panel p-7">
+              <div class="lux-icon mb-4">
+                <i data-lucide="scroll-text"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">Kịch bản cá nhân hóa</h3>
+              <p class="text-navy/70 leading-relaxed">Kịch bản dẫn riêng biệt, phản ánh câu chuyện của hai bạn.</p>
+            </article>
+            <article class="lux-panel p-7">
+              <div class="lux-icon mb-4">
+                <i data-lucide="calendar-clock"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">Lên timeline buổi lễ</h3>
+              <p class="text-navy/70 leading-relaxed">Kế hoạch chi tiết từng phần, đảm bảo diễn tiến mượt mà.</p>
+            </article>
+            <article class="lux-panel p-7">
+              <div class="lux-icon mb-4">
+                <i data-lucide="heart-handshake"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">Kể chuyện cảm xúc</h3>
+              <p class="text-navy/70 leading-relaxed">Dẫn dắt cảm xúc chạm đến trái tim khách mời.</p>
+            </article>
+            <article class="lux-panel p-7">
+              <div class="lux-icon mb-4">
+                <i data-lucide="users"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">Điều phối chuyên nghiệp</h3>
+              <p class="text-navy/70 leading-relaxed">Phối hợp nhịp nhàng cùng ê-kíp và nhà hàng.</p>
+            </article>
+            <article class="lux-panel p-7">
+              <div class="lux-icon mb-4">
+                <i data-lucide="mic"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">Tương tác khán giả</h3>
+              <p class="text-navy/70 leading-relaxed">Giữ không khí ấm áp, gắn kết mọi vị khách.</p>
+            </article>
+            <article class="lux-panel p-7">
+              <div class="lux-icon mb-4">
+                <i data-lucide="shield-check"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">Xử lý tình huống</h3>
+              <p class="text-navy/70 leading-relaxed">Bình tĩnh xử lý mọi sự cố phát sinh một cách chuyên nghiệp.</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="soft-reveal max-w-5xl mx-auto">
+          <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-4 mb-4">
+              <span class="gold-divider-line"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-gold"></span>
+              <span class="gold-divider-line"></span>
+            </div>
+            <p class="text-gold text-sm tracking-[0.3em] uppercase mb-3">FAQ</p>
+            <h2 class="font-display text-4xl lg:text-5xl font-bold text-navy mt-4">CÂU HỎI THƯỜNG GẶP</h2>
+            <p class="mt-3 text-lg italic text-gold/80">Những điều các cặp đôi thường quan tâm trước khi đặt lịch</p>
+          </div>
+          <div class="space-y-4">
+            <details class="faq-card" open>
+              <summary class="faq-summary">
+                <span>Chi phí thuê MC là bao nhiêu?</span>
+                <i data-lucide="chevron-down" class="faq-icon w-5 h-5"></i>
+              </summary>
+              <div class="faq-content">Chi phí tùy thuộc vào gói dịch vụ và địa điểm. Vui lòng liên hệ để nhận báo giá chi tiết phù hợp với nhu cầu của bạn.</div>
+            </details>
+            <details class="faq-card">
+              <summary class="faq-summary">
+                <span>Cần đặt lịch trước bao lâu?</span>
+                <i data-lucide="chevron-down" class="faq-icon w-5 h-5"></i>
+              </summary>
+              <div class="faq-content">Nên đặt trước ít nhất 2-3 tháng để đảm bảo lịch trình, đặc biệt vào mùa cưới cao điểm.</div>
+            </details>
+            <details class="faq-card">
+              <summary class="faq-summary">
+                <span>MC có dẫn song ngữ không?</span>
+                <i data-lucide="chevron-down" class="faq-icon w-5 h-5"></i>
+              </summary>
+              <div class="faq-content">Có, MC Hoàng Tuấn có thể dẫn chương trình bằng tiếng Việt và tiếng Anh cho các lễ cưới có khách quốc tế.</div>
+            </details>
+            <details class="faq-card">
+              <summary class="faq-summary">
+                <span>Gói Wedding Host bao gồm những gì?</span>
+                <i data-lucide="chevron-down" class="faq-icon w-5 h-5"></i>
+              </summary>
+              <div class="faq-content">Gói trọn bao gồm: MC lễ ăn hỏi + tiệc cưới, viết kịch bản, tổng duyệt, phối hợp ekip và hỗ trợ xuyên suốt.</div>
+            </details>
+            <details class="faq-card">
+              <summary class="faq-summary">
+                <span>MC có nhận dẫn ngoài TP.HCM không?</span>
+                <i data-lucide="chevron-down" class="faq-icon w-5 h-5"></i>
+              </summary>
+              <div class="faq-content">Có, MC Hoàng Tuấn nhận dẫn tại tất cả các tỉnh thành trên toàn quốc và cả nước ngoài.</div>
+            </details>
+          </div>
+        </div>
       </div>
-      <div class="p-6 space-y-3">
-       <h3 class="font-display text-xl font-bold text-navy">Tư Vấn Tổ Chức Sự Kiện</h3>
-       <p class="text-navy/60 text-sm leading-relaxed">Lên kịch bản, timeline chi tiết và tư vấn toàn bộ quy trình tổ chức sự kiện chuyên nghiệp từ A đến Z.</p><button class="text-gold text-sm font-semibold hover:text-gold transition-colors flex items-center gap-1">Xem thêm <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
-      </div>
-     </div><!-- Service 2 -->
-     <div class="card-hover gold-border rounded-2xl overflow-hidden bg-cream group">
-      <div class="h-48 bg-gradient-to-br from-gold/10 to-gold/5 flex items-center justify-center relative overflow-hidden"><i data-lucide="heart" class="w-16 h-16 text-gold/60 group-hover:text-gold transition-colors"></i>
-       <div class="absolute inset-0 bg-gold/0 group-hover:bg-gold/5 transition-colors"></div>
-      </div>
-      <div class="p-6 space-y-3">
-       <h3 class="font-display text-xl font-bold text-navy">MC Tiệc Cưới</h3>
-       <p class="text-navy/60 text-sm leading-relaxed">Dẫn dắt tiệc cưới với phong cách tinh tế, lãng mạn và tạo cảm xúc trọn vẹn cho ngày trọng đại.</p><button class="text-gold text-sm font-semibold hover:text-gold transition-colors flex items-center gap-1">Xem thêm <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
-      </div>
-     </div><!-- Service 3 -->
-     <div class="card-hover gold-border rounded-2xl overflow-hidden bg-cream group">
-      <div class="h-48 bg-gradient-to-br from-gold/10 to-gold/5 flex items-center justify-center relative overflow-hidden"><i data-lucide="users" class="w-16 h-16 text-gold/60 group-hover:text-gold transition-colors"></i>
-       <div class="absolute inset-0 bg-gold/0 group-hover:bg-gold/5 transition-colors"></div>
-      </div>
-      <div class="p-6 space-y-3">
-       <h3 class="font-display text-xl font-bold text-navy">Cung Cấp Nhân Sự Sự Kiện</h3>
-       <p class="text-navy/60 text-sm leading-relaxed">Đội ngũ PG, PB, usher chuyên nghiệp, được đào tạo bài bản sẵn sàng hỗ trợ mọi sự kiện.</p><button class="text-gold text-sm font-semibold hover:text-gold transition-colors flex items-center gap-1">Xem thêm <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
-      </div>
-     </div>
-    </div>
-  </div>
-</section>
+    </section>
+    
 
     <!-- SECTION 3: TESTIMONIALS -->
     <section id="testimonials" class="py-20 px-6 bg-cream">
@@ -469,6 +854,18 @@
       lightbox.addEventListener('click', closeLightbox);
       lightboxImage.addEventListener('click', closeLightbox);
 
+      // Reveal blocks from the inserted sections
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.soft-reveal').forEach((el) => revealObserver.observe(el));
+
       // Partner logos
       const partnerLogos = [
         'VietcomBank.jpg',
@@ -605,7 +1002,7 @@
   const defaultConfig = {
     mc_name: 'HOÀNG MINH TUẤN',
     mc_title: 'MC Sự Kiện – MC Hội Nghị – MC Tiệc Cưới – Event Host',
-    mc_intro: 'Với hơn 10 năm kinh nghiệm dẫn dắt hàng nghìn sự kiện từ tiệc cưới sang trọng đến hội nghị quốc tế, tôi mang đến năng lượng tích cực và sự chuyên nghiệp tuyệt đối cho mọi chương trình.',
+    mc_intro: 'Với hơn 3 năm kinh nghiệm dẫn dắt hàng nghìn sự kiện từ tiệc cưới sang trọng đến hội nghị quốc tế, tôi mang đến năng lượng tích cực và sự chuyên nghiệp tuyệt đối cho mọi chương trình.',
     mc_email: 'hoangminhtuan10599@gmail.com',
     mc_phone: '086 8950755',
     background_color: '#F5F3F0',
